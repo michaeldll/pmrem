@@ -5,6 +5,53 @@
     font-display: swap;
 }
 
-main {
+body {
     font-family: "Open Sans", sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.tp-dfwv {
+    // display: none;
+    left: 8px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: black;
+    
+    span {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    &__mask {
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+
+        &__22 {
+            visibility: hidden;
+        }
+
+        &__placeholder {
+            opacity: 0;
+        }
+
+        &__21, &__22 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
