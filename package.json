@@ -1,0 +1,25 @@
+{
+  "name": "hunter-gatherer-boilerplate",
+  "version": "1.0.0",
+  "description": "my boilerplate",
+  "main": "./src/app.ts",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node watch.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeldll/hunter-gatherer-boilerplate.git"
+  },
+  "author": "michael.dll",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaeldll/hunter-gatherer-boilerplate/issues"
+  },
+  "homepage": "https://github.com/michaeldll/hunter-gatherer-boilerplate#readme",
+  "dependencies": {
+    "esbuild": "^0.12.22",
+    "esbuild-plugin-glsl": "^1.1.0",
+    "esbuild-sass-plugin": "^2.2.6"
+  }
+}
