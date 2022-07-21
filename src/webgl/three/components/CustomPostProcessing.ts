@@ -128,7 +128,7 @@ export default class CustomPostProcessing extends ContextComponent<MainContext> 
             ease: Cubic.easeInOut
         })
         gsap.to(this.mixDepthPass.material.uniforms.uWidth, {
-            value: 0.11,
+            value: 0.07,
             duration: 3,
             onUpdate: () => { this.context.pane.refresh() },
             ease: Cubic.easeInOut
