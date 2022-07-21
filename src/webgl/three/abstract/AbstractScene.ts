@@ -52,13 +52,13 @@ export default abstract class AbstractScene extends BaseScene {
         this.onResize();
     }
 
-    protected setOrbit() {
+    protected setOrbit(enabled = true) {
         this.orbit = new OrbitControls(
             this.camera,
             this.context.renderer.domElement
         );
         this.orbit.update();
-        this.orbit.enabled = true;
+        this.orbit.enabled = enabled;
     }
 
     public onResize = () => {

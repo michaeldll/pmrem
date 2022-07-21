@@ -13,7 +13,7 @@ export default class PMREMScene extends AbstractScene {
     super(context, 'PMREM Scene')
 
     this.setCamera(new Vector3(9.9, 3.4, 13.09), new Euler(-.275, 0.64, 0.168));
-    this.setOrbit()
+    this.setOrbit(false)
     this.setObjects()
     this.setEvents();
 
