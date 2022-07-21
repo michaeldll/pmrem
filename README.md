@@ -8,9 +8,9 @@ Featuring:
 - Fast build times
 - Typescript, GLSL and SASS support
 
-## How to develop :
+## How to develop
 
-```
+```cli
 npm i && npm run dev
 ```
 
@@ -21,7 +21,8 @@ Assets need to be fetched from the `public` folder.
 It does not output the bundle to disk.
 
 ## How to deploy
-```
+
+```cli
 npm run build
 ```
 
