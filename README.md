@@ -1,5 +1,7 @@
 # Prefiltered, Mipmapped Radiance Environment Maps (PMREM) Experimentation
 
+# Boilerplate :
+
 As barebones I'm willing to go. You probably don't want to use this (?).
 
 Featuring: 
