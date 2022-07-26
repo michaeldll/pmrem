@@ -18,7 +18,6 @@ export default class PMREMScene extends AbstractScene {
     this.setEvents();
 
     // this.debug();
-    this.tweaks()
   }
 
   private setObjects() {
@@ -73,17 +72,6 @@ export default class PMREMScene extends AbstractScene {
 
   public removeEvents = () => {
     window.removeEventListener("resize", this.onResize)
-  }
-
-  private tweaks = () => {
-    const folder: FolderApi = this.context.pane.addFolder({
-      title: this.scene.name,
-    });
-
-    folder.addInput(this.orbit, "enabled", { label: "Toggle orbit" });
-
-    folder.addInput(this.camera, "position", { label: "Camera Position" });
-    folder.addInput(this.camera, "rotation", { label: "Camera Rotation" });
   }
 
   public tick(deltaTime, elapsedTime) {
