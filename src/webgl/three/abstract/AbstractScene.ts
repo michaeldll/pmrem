@@ -12,12 +12,17 @@ import {
 } from "three";
 import { OrbitControls } from "@/utils/libs/OrbitControls";
 
-export default abstract class AbstractScene extends BaseScene {
+export default abstract class AbstractScene {
     public name: string
+    public scene = new Scene()
+    public camera: PerspectiveCamera
+    
     protected orbit: OrbitControls;
+    protected context: MainContext
 
     constructor(context: MainContext, name: string) {
-        super(context, name);
+        this.context = context
+        this.scene.name = name
     }
 
     protected generateContext = () => ({
