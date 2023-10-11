@@ -1,4 +1,3 @@
-import BaseScene from "./BaseScene";
 import { MainContext } from "../WebGLController";
 import {
     AxesHelper,
@@ -8,6 +7,7 @@ import {
     Mesh,
     MeshMatcapMaterial,
     PerspectiveCamera,
+    Scene,
     Vector3,
 } from "three";
 import { OrbitControls } from "@/utils/libs/OrbitControls";
