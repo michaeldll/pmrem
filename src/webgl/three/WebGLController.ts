@@ -1,8 +1,7 @@
-import { ACESFilmicToneMapping, Camera, CineonToneMapping, Clock, Mesh, MeshBasicMaterial, MeshStandardMaterial, Object3D, PMREMGenerator, Raycaster, Scene, sRGBEncoding, Texture, TextureLoader, Vector2, WebGLRenderer } from "three";
+import { ACESFilmicToneMapping, Clock, Mesh, MeshStandardMaterial, PMREMGenerator, Raycaster, sRGBEncoding, Texture, TextureLoader, Vector2, WebGLRenderer } from "three";
 import { Pane } from "tweakpane";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
-import { getProxyState, isTouchDevice } from "../../utils/misc/misc";
-import { Phase } from "../../types/Phase";
+import { isTouchDevice } from "../../utils/misc/misc";
 import FramerateManager from "@/utils/perf/FramerateManager";
 import CarScene from "./scenes/CarScene";
 import { TierResult } from 'detect-gpu';
@@ -17,8 +16,6 @@ export default class WebGLController {
   private clock = new Clock();
   private canvas: HTMLCanvasElement;
   private renderer: WebGLRenderer;
-  private initialState: { phase: Phase } = { phase: "DEBUG" }
-  private state = getProxyState(this.initialState);
   private postprocessing: CustomPostProcessing
   private pane = new Pane()
   private framerateManager: FramerateManager;
@@ -66,7 +63,6 @@ export default class WebGLController {
     pane: this.pane,
     isTouchDevice: isTouchDevice(),
     gltfLoader: new GLTFLoader(),
-    state: this.state,
     postprocessing: this.postprocessing,
     scroller: new VirtualScroll({
       useKeyboard: false,

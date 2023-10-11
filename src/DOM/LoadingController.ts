@@ -2,8 +2,8 @@ import gsap, { Expo } from 'gsap'
 
 export default class LoadingController {
     private container = document.querySelector('.loader')
-    private twentyOne = document.querySelector('.loader__mask__21')
-    private twentyTwo = document.querySelector('.loader__mask__22')
+    private twentyOne = document.querySelector('.loader__mask__loading')
+    private twentyTwo = document.querySelector('.loader__mask__loaded')
 
     constructor() {
         document.body.addEventListener("loaded", this.onLoad, false);
