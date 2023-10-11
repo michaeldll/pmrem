@@ -12,7 +12,6 @@ import {
     FloatType,
     ShaderMaterial,
 } from "three"
-import gsap, { Cubic } from "gsap"
 import MixDepthPostProcessing from "../materials/MixDepthPostProcessing"
 import { MainContext } from "../WebGLController"
 import { ExtendedRenderTargetOptions } from "../../../types/ExtendedRenderTargetOptions"
@@ -115,54 +114,26 @@ export default class CustomPostProcessing extends ContextComponent<MainContext> 
     // Transition FBOs
     public transitionScenes(toggle: boolean) {
         if (toggle) {
-            this.transitionOut()
+            this.hide()
         } else {
-            this.transitionIn()
+            this.show()
         }
     }
 
-    private transitionIn() {
-        gsap.to(this.mixDepthPass.material.uniforms.uProgression, {
-            value: .99,
-            duration: 3,
-            ease: Cubic.easeInOut
-        })
-        gsap.to(this.mixDepthPass.material.uniforms.uWidth, {
-            value: 0.07,
-            duration: 3,
-            onUpdate: () => { this.context.pane.refresh() },
-            ease: Cubic.easeInOut
-        })
+    private show() {
+        this.mixDepthPass.material.uniforms.uProgression.value = 0.99
+        this.mixDepthPass.material.uniforms.uWidth.value = 0.07
     }
 
-    private transitionOut() {
-        gsap.to(this.mixDepthPass.material.uniforms.uProgression, {
-            value: 0.1,
-            duration: 3,
-            ease: Cubic.easeInOut
-        })
-        gsap.to(this.mixDepthPass.material.uniforms.uWidth, {
-            value: 0.02,
-            duration: 3,
-            onUpdate: () => { this.context.pane.refresh() },
-            ease: Cubic.easeInOut
-        })
+    private hide() {
+        this.mixDepthPass.material.uniforms.uProgression.value = 0.1
+        this.mixDepthPass.material.uniforms.uWidth.value = 0.02
     }
 
     public tweaks = () => {
         const folder = this.context.pane.addFolder({ title: "Post Processing" })
-        folder.addInput(this.mixDepthPass.material.uniforms.uProgression, "value", {
-            max: 1,
-            min: 0,
-            label: 'Mix Depth Progression'
-        })
-        folder.addInput(this.mixDepthPass.material.uniforms.uWidth, "value", {
-            max: 1,
-            min: 0,
-            label: 'Mix Depth Width'
-        })
         const button = folder.addButton({
-            title: 'Transition Scenes',
+            title: 'Toggle PMREM scene',
         })
         button.on('click', () => {
             this.visibleFbo === "fboA" ? this.visibleFbo = "fboB" : this.visibleFbo = "fboA"

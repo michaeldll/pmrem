@@ -7,7 +7,7 @@ const vertexShader = /*glsl*/`
     }
 `;
 
-// Heavily inspired by https://www.artisansdidees.com/fr created by https://immersive-g.com/
+// Depth mixing heavily inspired by https://www.artisansdidees.com/fr, created by https://immersive-g.com/
 const fragmentShader = /*glsl*/`
     precision highp float;
 

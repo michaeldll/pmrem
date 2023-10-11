@@ -1,4 +1,4 @@
-import { Color, Mesh, MeshPhysicalMaterial, MeshStandardMaterial, Vector2 } from "three"
+import { Color, Mesh, MeshStandardMaterial } from "three"
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 import { AbstractSceneContext } from "../abstract/AbstractScene"
 import ContextComponent from "../abstract/ContextComponent"
